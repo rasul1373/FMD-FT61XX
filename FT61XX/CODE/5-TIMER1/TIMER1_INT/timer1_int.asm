@@ -1,0 +1,91 @@
+//Deviec:FT61F02X
+//-----------------------Variable---------------------------------
+//-----------------------Variable END---------------------------------
+
+		ORG		0000H
+		LJUMP 	0AH 			//0000 	380A
+		ORG		0004H
+		STR 	7EH 			//0004 	01FE
+		SWAPR 	STATUS,0 		//0005 	0703
+		STR 	70H 			//0006 	01F0
+		LDR 	PCLATH,0 		//0007 	080A
+		STR 	71H 			//0008 	01F1
+		LJUMP 	20H 			//0009 	3820
+		LJUMP 	0BH 			//000A 	380B
+		CLRR 	STATUS 			//000B 	0103
+		LJUMP 	0DH 			//000C 	380D
+
+		//;TIMER1_INT.C: 37: OSCCON = 0B01110001;
+		LDWI 	71H 			//000D 	2A71
+		BSR 	STATUS,5 		//000E 	1A83
+		STR 	FH 			//000F 	018F
+
+		//;TIMER1_INT.C: 39: TRISC = 0;
+		CLRR 	7H 			//0010 	0107
+
+		//;TIMER1_INT.C: 40: WPUC = 0;
+		CLRR 	8H 			//0011 	0108
+
+		//;TIMER1_INT.C: 41: PORTC = 0;
+		BCR 	STATUS,5 		//0012 	1283
+		CLRR 	7H 			//0013 	0107
+
+		//;TIMER1_INT.C: 43: TMR1L=0x66;
+		LDWI 	66H 			//0014 	2A66
+		STR 	EH 			//0015 	018E
+
+		//;TIMER1_INT.C: 44: TMR1H=0xc1;
+		LDWI 	C1H 			//0016 	2AC1
+		STR 	FH 			//0017 	018F
+
+		//;TIMER1_INT.C: 45: TMR1ON=1;
+		BSR 	10H,0 			//0018 	1810
+
+		//;TIMER1_INT.C: 46: TMR1IE=1;
+		BSR 	STATUS,5 		//0019 	1A83
+		BSR 	CH,0 			//001A 	180C
+
+		//;TIMER1_INT.C: 47: PEIE=1;
+		BSR 	INTCON,6 		//001B 	1B0B
+
+		//;TIMER1_INT.C: 48: GIE=1;
+		BSR 	INTCON,7 		//001C 	1B8B
+
+		//;TIMER1_INT.C: 49: TMR1IF=0;
+		BCR 	STATUS,5 		//001D 	1283
+		BCR 	CH,0 			//001E 	100C
+
+		//;TIMER1_INT.C: 53: while(1)
+		//;TIMER1_INT.C: 54: {
+		LJUMP 	1FH 			//001F 	381F
+
+		//;TIMER1_INT.C: 22: if(TMR1IF)
+		BCR 	STATUS,5 		//0020 	1283
+		BCR 	STATUS,6 		//0021 	1303
+		BTSS 	CH,0 			//0022 	1C0C
+		LJUMP 	2BH 			//0023 	382B
+
+		//;TIMER1_INT.C: 23: {
+		//;TIMER1_INT.C: 24: TMR1IF=0;
+		BCR 	CH,0 			//0024 	100C
+
+		//;TIMER1_INT.C: 25: TMR1L=0x66;
+		LDWI 	66H 			//0025 	2A66
+		STR 	EH 			//0026 	018E
+
+		//;TIMER1_INT.C: 26: TMR1H=0xc1;
+		LDWI 	C1H 			//0027 	2AC1
+		STR 	FH 			//0028 	018F
+
+		//;TIMER1_INT.C: 27: RC5 = ~RC5;
+		LDWI 	20H 			//0029 	2A20
+		XORWR 	7H,1 			//002A 	0487
+		LDR 	71H,0 			//002B 	0871
+		ORG		002CH
+		STR 	PCLATH 			//002C 	018A
+		SWAPR 	70H,0 			//002D 	0770
+		STR 	STATUS 			//002E 	0183
+		SWAPR 	7EH,1 			//002F 	07FE
+		SWAPR 	7EH,0 			//0030 	077E
+		RETI		 			//0031 	0009
+			END

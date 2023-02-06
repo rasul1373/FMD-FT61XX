@@ -1,0 +1,85 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F02X ]
+[d frameptr 6 ]
+"62 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"20 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\5-TIMER1\TIMER1_COUNTER\TIMER1_COUNTER.C
+[v _ISR ISR `II(v  1 e 1 0 ]
+"31
+[v _delayUs delayUs `(v  1 e 1 0 ]
+"40
+[v _delayMs delayMs `(v  1 e 1 0 ]
+"59
+[v _main main `(i  1 e 2 0 ]
+"130 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\FT61F02X.h
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"137
+[v _RC5 RC5 `VEb  1 e 0 @61 ]
+"193
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"194
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"213
+[v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"252
+[v _TMR1L TMR1L `VEuc  1 e 1 @14 ]
+"256
+[v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
+"262
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"263
+[v _TMR1CS TMR1CS `VEb  1 e 0 @129 ]
+"266
+[v _T1CKPS0 T1CKPS0 `VEb  1 e 0 @132 ]
+"267
+[v _T1CKPS1 T1CKPS1 `VEb  1 e 0 @133 ]
+"634
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"661
+[v _WPUC WPUC `VEuc  1 e 1 @136 ]
+"709
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1120 ]
+"779
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"14 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\5-TIMER1\TIMER1_COUNTER\TIMER1_COUNTER.C
+[v _a a `VEuc  1 e 1 0 ]
+"59
+[v _main main `(i  1 e 2 0 ]
+{
+"93
+} 0
+"40
+[v _delayMs delayMs `(v  1 e 1 0 ]
+{
+[v delayMs@time time `uc  1 a 1 wreg ]
+"42
+[v delayMs@b b `uc  1 a 1 6 ]
+"41
+[v delayMs@a a `uc  1 a 1 5 ]
+"40
+[v delayMs@time time `uc  1 a 1 wreg ]
+"44
+[v delayMs@time time `uc  1 a 1 4 ]
+"52
+} 0
+"31
+[v _delayUs delayUs `(v  1 e 1 0 ]
+{
+[v delayUs@time time `uc  1 a 1 wreg ]
+"32
+[v delayUs@a a `uc  1 a 1 3 ]
+"31
+[v delayUs@time time `uc  1 a 1 wreg ]
+"34
+[v delayUs@time time `uc  1 a 1 2 ]
+"38
+} 0
+"20
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"29
+} 0

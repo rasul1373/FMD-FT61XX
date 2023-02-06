@@ -1,0 +1,22 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F02X ]
+[d frameptr 6 ]
+"62 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"20 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\test\test.C
+[v _ISR ISR `II(v  1 e 1 0 ]
+"28
+[v _main main `(i  1 e 2 0 ]
+[v _main main `(i  1 e 2 0 ]
+{
+"30
+} 0
+"20
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"22
+} 0

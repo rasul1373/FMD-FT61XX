@@ -1,0 +1,90 @@
+//Deviec:FT61F02X
+//-----------------------Variable---------------------------------
+//-----------------------Variable END---------------------------------
+
+		ORG		0000H
+		LJUMP 	0AH 			//0000 	380A
+		ORG		0004H
+		STR 	7EH 			//0004 	01FE
+		SWAPR 	STATUS,0 		//0005 	0703
+		STR 	70H 			//0006 	01F0
+		LDR 	PCLATH,0 		//0007 	080A
+		STR 	71H 			//0008 	01F1
+		LJUMP 	23H 			//0009 	3823
+		LJUMP 	0BH 			//000A 	380B
+		CLRR 	STATUS 			//000B 	0103
+		LJUMP 	0DH 			//000C 	380D
+
+		//;TIMER2_IN.C: 36: OSCCON = 0B01110001;
+		LDWI 	71H 			//000D 	2A71
+		BSR 	STATUS,5 		//000E 	1A83
+		STR 	FH 			//000F 	018F
+
+		//;TIMER2_IN.C: 38: TRISC = 0;
+		CLRR 	7H 			//0010 	0107
+
+		//;TIMER2_IN.C: 39: WPUC = 0;
+		CLRR 	8H 			//0011 	0108
+
+		//;TIMER2_IN.C: 40: PORTC = 0;
+		BCR 	STATUS,5 		//0012 	1283
+		CLRR 	7H 			//0013 	0107
+
+		//;TIMER2_IN.C: 44: T2CKPS0=1;
+		BSR 	12H,0 			//0014 	1812
+
+		//;TIMER2_IN.C: 45: T2CKPS1=0;
+		BCR 	12H,1 			//0015 	1092
+
+		//;TIMER2_IN.C: 47: TOUTPS0=1;
+		BSR 	12H,3 			//0016 	1992
+
+		//;TIMER2_IN.C: 49: PR2=100;
+		LDWI 	64H 			//0017 	2A64
+		BSR 	STATUS,5 		//0018 	1A83
+		STR 	12H 			//0019 	0192
+
+		//;TIMER2_IN.C: 51: TMR2ON=1;
+		BCR 	STATUS,5 		//001A 	1283
+		BSR 	12H,2 			//001B 	1912
+
+		//;TIMER2_IN.C: 52: TMR2IE=1;
+		BSR 	STATUS,5 		//001C 	1A83
+		BSR 	CH,1 			//001D 	188C
+
+		//;TIMER2_IN.C: 53: PEIE=1;
+		BSR 	INTCON,6 		//001E 	1B0B
+
+		//;TIMER2_IN.C: 54: GIE=1;
+		BSR 	INTCON,7 		//001F 	1B8B
+
+		//;TIMER2_IN.C: 55: TMR2IF=0;
+		BCR 	STATUS,5 		//0020 	1283
+		BCR 	CH,1 			//0021 	108C
+
+		//;TIMER2_IN.C: 59: while(1)
+		//;TIMER2_IN.C: 60: {
+		LJUMP 	22H 			//0022 	3822
+
+		//;TIMER2_IN.C: 22: if(TMR2IF)
+		BCR 	STATUS,5 		//0023 	1283
+		BCR 	STATUS,6 		//0024 	1303
+		BTSS 	CH,1 			//0025 	1C8C
+		LJUMP 	2AH 			//0026 	382A
+
+		//;TIMER2_IN.C: 23: {
+		//;TIMER2_IN.C: 24: TMR2IF=0;
+		BCR 	CH,1 			//0027 	108C
+
+		//;TIMER2_IN.C: 26: RC5 = ~RC5;
+		LDWI 	20H 			//0028 	2A20
+		XORWR 	7H,1 			//0029 	0487
+		LDR 	71H,0 			//002A 	0871
+		STR 	PCLATH 			//002B 	018A
+		ORG		002CH
+		SWAPR 	70H,0 			//002C 	0770
+		STR 	STATUS 			//002D 	0183
+		SWAPR 	7EH,1 			//002E 	07FE
+		SWAPR 	7EH,0 			//002F 	077E
+		RETI		 			//0030 	0009
+			END

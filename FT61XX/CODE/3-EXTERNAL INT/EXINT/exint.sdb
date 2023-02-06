@@ -1,0 +1,95 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F02X ]
+[d frameptr 6 ]
+"62 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"15 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\3-EXTERNAL INT\EXINT\EXINT.C
+[v _delayUs delayUs `(v  1 e 1 0 ]
+[v i1_delayUs delayUs `(v  1 e 1 0 ]
+"24
+[v _delayMs delayMs `(v  1 e 1 0 ]
+[v i1_delayMs delayMs `(v  1 e 1 0 ]
+"43
+[v _ISR ISR `II(v  1 e 1 0 ]
+"65
+[v _main main `(i  1 e 2 0 ]
+"129 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\FT61F02X.h
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"187
+[v _INTF INTF `VEb  1 e 0 @89 ]
+"190
+[v _INTE INTE `VEb  1 e 0 @92 ]
+"193
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"449
+[v _CMCON0 CMCON0 `VEuc  1 e 1 @25 ]
+"582
+[v _INTEDG INTEDG `VEb  1 e 0 @1038 ]
+"633
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"660
+[v _WPUC WPUC `VEuc  1 e 1 @136 ]
+"778
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"841
+[v _ANSEL5 ANSEL5 `VEb  1 e 0 @1165 ]
+"65 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\3-EXTERNAL INT\EXINT\EXINT.C
+[v _main main `(i  1 e 2 0 ]
+{
+"89
+} 0
+"24
+[v _delayMs delayMs `(v  1 e 1 0 ]
+{
+[v delayMs@time time `uc  1 a 1 wreg ]
+"26
+[v delayMs@b b `uc  1 a 1 4 ]
+[v delayMs@a a `uc  1 a 1 3 ]
+"24
+[v delayMs@time time `uc  1 a 1 wreg ]
+"28
+[v delayMs@time time `uc  1 a 1 2 ]
+"36
+} 0
+"15
+[v _delayUs delayUs `(v  1 e 1 0 ]
+{
+[v delayUs@time time `uc  1 a 1 wreg ]
+"17
+[v delayUs@a a `uc  1 a 1 1 ]
+"15
+[v delayUs@time time `uc  1 a 1 wreg ]
+"18
+[v delayUs@time time `uc  1 a 1 0 ]
+"22
+} 0
+"43
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"59
+} 0
+"24
+[v i1_delayMs delayMs `(v  1 e 1 0 ]
+{
+[v i1delayMs@time time `uc  1 a 1 wreg ]
+[v i1delayMs@b delayMs `uc  1 a 1 4 ]
+[v i1delayMs@a delayMs `uc  1 a 1 3 ]
+[v i1delayMs@time time `uc  1 a 1 wreg ]
+"28
+[v i1delayMs@time time `uc  1 a 1 2 ]
+"36
+} 0
+"15
+[v i1_delayUs delayUs `(v  1 e 1 0 ]
+{
+[v i1delayUs@time time `uc  1 a 1 wreg ]
+[v i1delayUs@a delayUs `uc  1 a 1 1 ]
+[v i1delayUs@time time `uc  1 a 1 wreg ]
+"18
+[v i1delayUs@time time `uc  1 a 1 0 ]
+"22
+} 0

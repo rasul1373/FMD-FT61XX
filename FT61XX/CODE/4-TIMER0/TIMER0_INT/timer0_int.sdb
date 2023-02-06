@@ -1,0 +1,51 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F02X ]
+[d frameptr 6 ]
+"62 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"20 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\4-TIMER0\TIMER0_INT\TIMER0_INT.C
+[v _ISR ISR `II(v  1 e 1 0 ]
+"34
+[v _main main `(i  1 e 2 0 ]
+"15 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\FT61F02X.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"130
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"144
+[v _PC5 PC5 `VEb  1 e 0 @61 ]
+"189
+[v _T0IF T0IF `VEb  1 e 0 @90 ]
+"192
+[v _T0IE T0IE `VEb  1 e 0 @93 ]
+"194
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"577
+[v _PS0 PS0 `VEb  1 e 0 @1032 ]
+"578
+[v _PS1 PS1 `VEb  1 e 0 @1033 ]
+"579
+[v _PS2 PS2 `VEb  1 e 0 @1034 ]
+"580
+[v _PSA PSA `VEb  1 e 0 @1035 ]
+"581
+[v _T0SE T0SE `VEb  1 e 0 @1036 ]
+"582
+[v _T0CS T0CS `VEb  1 e 0 @1037 ]
+"634
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"779
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"34 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\4-TIMER0\TIMER0_INT\TIMER0_INT.C
+[v _main main `(i  1 e 2 0 ]
+{
+"58
+} 0
+"20
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"28
+} 0

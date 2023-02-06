@@ -1,0 +1,88 @@
+//Deviec:FT61F02X
+//-----------------------Variable---------------------------------
+//-----------------------Variable END---------------------------------
+
+		ORG		0000H
+		LJUMP 	0AH 			//0000 	380A
+		ORG		0004H
+		STR 	7EH 			//0004 	01FE
+		SWAPR 	STATUS,0 		//0005 	0703
+		STR 	70H 			//0006 	01F0
+		LDR 	PCLATH,0 		//0007 	080A
+		STR 	71H 			//0008 	01F1
+		LJUMP 	1EH 			//0009 	381E
+		LJUMP 	0BH 			//000A 	380B
+		CLRR 	STATUS 			//000B 	0103
+		LJUMP 	0DH 			//000C 	380D
+
+		//;TIMER0_INT.C: 36: OSCCON = 0B01110001;
+		LDWI 	71H 			//000D 	2A71
+		BSR 	STATUS,5 		//000E 	1A83
+		STR 	FH 			//000F 	018F
+
+		//;TIMER0_INT.C: 38: TRISC = 0;
+		CLRR 	7H 			//0010 	0107
+
+		//;TIMER0_INT.C: 39: PORTC = 0;
+		BCR 	STATUS,5 		//0011 	1283
+		CLRR 	7H 			//0012 	0107
+
+		//;TIMER0_INT.C: 41: PS0=0;
+		BSR 	STATUS,5 		//0013 	1A83
+		BCR 	1H,0 			//0014 	1001
+
+		//;TIMER0_INT.C: 42: PS1=0;
+		BCR 	1H,1 			//0015 	1081
+
+		//;TIMER0_INT.C: 43: PS2=0;
+		BCR 	1H,2 			//0016 	1101
+
+		//;TIMER0_INT.C: 44: T0CS=0;
+		BCR 	1H,5 			//0017 	1281
+
+		//;TIMER0_INT.C: 45: T0SE=0;
+		BCR 	1H,4 			//0018 	1201
+
+		//;TIMER0_INT.C: 46: PSA=0;
+		BCR 	1H,3 			//0019 	1181
+
+		//;TIMER0_INT.C: 48: GIE=1;
+		BSR 	INTCON,7 		//001A 	1B8B
+
+		//;TIMER0_INT.C: 49: T0IE=1;
+		BSR 	INTCON,5 		//001B 	1A8B
+
+		//;TIMER0_INT.C: 50: T0IF=0;
+		BCR 	INTCON,2 		//001C 	110B
+
+		//;TIMER0_INT.C: 54: while(1)
+		//;TIMER0_INT.C: 55: {
+		LJUMP 	1DH 			//001D 	381D
+
+		//;TIMER0_INT.C: 22: if(T0IE && T0IF)
+		BTSC 	INTCON,5 		//001E 	168B
+		BTSS 	INTCON,2 		//001F 	1D0B
+		LJUMP 	28H 			//0020 	3828
+
+		//;TIMER0_INT.C: 23: {
+		//;TIMER0_INT.C: 24: T0IF=0;
+		BCR 	INTCON,2 		//0021 	110B
+
+		//;TIMER0_INT.C: 25: TMR0=65;
+		LDWI 	41H 			//0022 	2A41
+		BCR 	STATUS,5 		//0023 	1283
+		BCR 	STATUS,6 		//0024 	1303
+		STR 	1H 			//0025 	0181
+
+		//;TIMER0_INT.C: 26: PC5 = ~PC5;
+		LDWI 	20H 			//0026 	2A20
+		XORWR 	7H,1 			//0027 	0487
+		LDR 	71H,0 			//0028 	0871
+		STR 	PCLATH 			//0029 	018A
+		SWAPR 	70H,0 			//002A 	0770
+		STR 	STATUS 			//002B 	0183
+		ORG		002CH
+		SWAPR 	7EH,1 			//002C 	07FE
+		SWAPR 	7EH,0 			//002D 	077E
+		RETI		 			//002E 	0009
+			END

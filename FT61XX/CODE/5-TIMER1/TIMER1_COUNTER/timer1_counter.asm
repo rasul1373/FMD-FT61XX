@@ -1,0 +1,175 @@
+//Deviec:FT61F02X
+//-----------------------Variable---------------------------------
+		_a		EQU		77H
+//		delayMs@time		EQU		74H
+//		delayMs@b		EQU		76H
+//		delayMs@a		EQU		75H
+//		delayMs@time		EQU		74H
+//		delayMs@time		EQU		74H
+//		delayUs@time		EQU		72H
+//		delayUs@a		EQU		73H
+//		delayUs@time		EQU		72H
+//		delayUs@time		EQU		72H
+//-----------------------Variable END---------------------------------
+
+		ORG		0000H
+		LJUMP 	0AH 			//0000 	380A
+		ORG		0004H
+		STR 	7EH 			//0004 	01FE
+		SWAPR 	STATUS,0 		//0005 	0703
+		STR 	70H 			//0006 	01F0
+		LDR 	PCLATH,0 		//0007 	080A
+		STR 	71H 			//0008 	01F1
+		LJUMP 	32H 			//0009 	3832
+		LJUMP 	0BH 			//000A 	380B
+		CLRR 	77H 			//000B 	0177
+		CLRR 	STATUS 			//000C 	0103
+		LJUMP 	0EH 			//000D 	380E
+
+		//;TIMER1_COUNTER.C: 61: OSCCON = 0B01110001;
+		LDWI 	71H 			//000E 	2A71
+		BSR 	STATUS,5 		//000F 	1A83
+		STR 	FH 			//0010 	018F
+
+		//;TIMER1_COUNTER.C: 63: TRISC = 0;
+		CLRR 	7H 			//0011 	0107
+
+		//;TIMER1_COUNTER.C: 64: WPUC = 0;
+		CLRR 	8H 			//0012 	0108
+
+		//;TIMER1_COUNTER.C: 65: PORTC = 0;
+		BCR 	STATUS,5 		//0013 	1283
+		CLRR 	7H 			//0014 	0107
+
+		//;TIMER1_COUNTER.C: 67: TMR1L=0x66;
+		LDWI 	66H 			//0015 	2A66
+		STR 	EH 			//0016 	018E
+
+		//;TIMER1_COUNTER.C: 68: TMR1H=0xc1;
+		LDWI 	C1H 			//0017 	2AC1
+		STR 	FH 			//0018 	018F
+
+		//;TIMER1_COUNTER.C: 69: TMR1ON=1;
+		BSR 	10H,0 			//0019 	1810
+
+		//;TIMER1_COUNTER.C: 70: TMR1IE=1;
+		BSR 	STATUS,5 		//001A 	1A83
+		BSR 	CH,0 			//001B 	180C
+
+		//;TIMER1_COUNTER.C: 71: PEIE=1;
+		BSR 	INTCON,6 		//001C 	1B0B
+
+		//;TIMER1_COUNTER.C: 72: GIE=1;
+		BSR 	INTCON,7 		//001D 	1B8B
+
+		//;TIMER1_COUNTER.C: 73: TMR1IF=0;
+		BCR 	STATUS,5 		//001E 	1283
+		BCR 	CH,0 			//001F 	100C
+
+		//;TIMER1_COUNTER.C: 75: TMR1CS=1;
+		BSR 	10H,1 			//0020 	1890
+
+		//;TIMER1_COUNTER.C: 76: T1CKPS0=1;
+		BSR 	10H,4 			//0021 	1A10
+
+		//;TIMER1_COUNTER.C: 77: T1CKPS1=0;
+		BCR 	10H,5 			//0022 	1290
+
+		//;TIMER1_COUNTER.C: 81: {
+		//;TIMER1_COUNTER.C: 82: if( TMR1L != a)
+		LDR 	EH,0 			//0023 	080E
+		XORWR 	77H,0 			//0024 	0477
+		BTSC 	STATUS,2 		//0025 	1503
+		LJUMP 	23H 			//0026 	3823
+
+		//;TIMER1_COUNTER.C: 83: {
+		//;TIMER1_COUNTER.C: 84: a = TMR1L;
+		LDR 	EH,0 			//0027 	080E
+		STR 	77H 			//0028 	01F7
+
+		//;TIMER1_COUNTER.C: 85: RC5 = ~RC5;
+		LDWI 	20H 			//0029 	2A20
+		XORWR 	7H,1 			//002A 	0487
+
+		//;TIMER1_COUNTER.C: 86: delayMs(200);
+		LDWI 	C8H 			//002B 	2AC8
+		LCALL 	44H 			//002C 	3044
+
+		//;TIMER1_COUNTER.C: 87: RC5 = ~RC5;
+		LDWI 	20H 			//002D 	2A20
+		BCR 	STATUS,5 		//002E 	1283
+		BCR 	STATUS,6 		//002F 	1303
+		XORWR 	7H,1 			//0030 	0487
+		LJUMP 	23H 			//0031 	3823
+
+		//;TIMER1_COUNTER.C: 22: if(TMR1IF)
+		BCR 	STATUS,5 		//0032 	1283
+		BCR 	STATUS,6 		//0033 	1303
+		BTSS 	CH,0 			//0034 	1C0C
+		LJUMP 	3DH 			//0035 	383D
+
+		//;TIMER1_COUNTER.C: 23: {
+		//;TIMER1_COUNTER.C: 24: TMR1IF=0;
+		BCR 	CH,0 			//0036 	100C
+
+		//;TIMER1_COUNTER.C: 25: TMR1L=0x66;
+		LDWI 	66H 			//0037 	2A66
+		STR 	EH 			//0038 	018E
+
+		//;TIMER1_COUNTER.C: 26: TMR1H=0xc1;
+		LDWI 	C1H 			//0039 	2AC1
+		STR 	FH 			//003A 	018F
+
+		//;TIMER1_COUNTER.C: 27: RC5 = ~RC5;
+		LDWI 	20H 			//003B 	2A20
+		XORWR 	7H,1 			//003C 	0487
+		LDR 	71H,0 			//003D 	0871
+		STR 	PCLATH 			//003E 	018A
+		SWAPR 	70H,0 			//003F 	0770
+		STR 	STATUS 			//0040 	0183
+		SWAPR 	7EH,1 			//0041 	07FE
+		SWAPR 	7EH,0 			//0042 	077E
+		RETI		 			//0043 	0009
+		STR 	74H 			//0044 	01F4
+
+		//;TIMER1_COUNTER.C: 42: unsigned char a,b;
+		//;TIMER1_COUNTER.C: 44: for(b=0;b<5;b++)
+		CLRR 	76H 			//0045 	0176
+
+		//;TIMER1_COUNTER.C: 45: {
+		//;TIMER1_COUNTER.C: 46: for(a=0;a<time;a++)
+		CLRR 	75H 			//0046 	0175
+		LDR 	74H,0 			//0047 	0874
+		SUBWR 	75H,0 			//0048 	0C75
+		BTSC 	STATUS,0 		//0049 	1403
+		LJUMP 	4FH 			//004A 	384F
+
+		//;TIMER1_COUNTER.C: 47: {
+		//;TIMER1_COUNTER.C: 48: delayUs(197);
+		LDWI 	C5H 			//004B 	2AC5
+		LCALL 	55H 			//004C 	3055
+		INCR	75H,1 			//004D 	09F5
+		LJUMP 	47H 			//004E 	3847
+		LDWI 	5H 			//004F 	2A05
+		INCR	76H,1 			//0050 	09F6
+		SUBWR 	76H,0 			//0051 	0C76
+		BTSC 	STATUS,0 		//0052 	1403
+		RET		 					//0053 	0004
+		LJUMP 	46H 			//0054 	3846
+		STR 	72H 			//0055 	01F2
+
+		//;TIMER1_COUNTER.C: 33: unsigned char a;
+		//;TIMER1_COUNTER.C: 34: for(a=0;a<time;a++)
+		CLRR 	73H 			//0056 	0173
+		LDR 	72H,0 			//0057 	0872
+		SUBWR 	73H,0 			//0058 	0C73
+		BTSC 	STATUS,0 		//0059 	1403
+		RET		 					//005A 	0004
+
+		//;TIMER1_COUNTER.C: 35: {
+		//;TIMER1_COUNTER.C: 36: __nop();
+		NOP		 					//005B 	0000
+		ORG		005CH
+		INCR	73H,1 			//005C 	09F3
+		LJUMP 	57H 			//005D 	3857
+			END

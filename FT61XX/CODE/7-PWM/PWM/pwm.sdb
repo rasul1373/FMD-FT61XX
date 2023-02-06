@@ -1,0 +1,49 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F02X ]
+[d frameptr 6 ]
+"62 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"20 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\7-PWM\PWM\PWM.C
+[v _ISR ISR `II(v  1 e 1 0 ]
+"28
+[v _main main `(i  1 e 2 0 ]
+"640 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\FT61F02X.h
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"779
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"1097
+[v _TMR3L TMR3L `VEuc  1 e 1 @268 ]
+"1101
+[v _TMR3H TMR3H `VEuc  1 e 1 @269 ]
+"1103
+[v _PR3H0 PR3H0 `VEb  1 e 0 @2152 ]
+"1104
+[v _PR3H1 PR3H1 `VEb  1 e 0 @2153 ]
+"1105
+[v _PR3H2 PR3H2 `VEb  1 e 0 @2154 ]
+"1106
+[v _PR3H3 PR3H3 `VEb  1 e 0 @2155 ]
+"1131
+[v _PR3L PR3L `VEuc  1 e 1 @270 ]
+"1135
+[v _PWM3CR0 PWM3CR0 `VEuc  1 e 1 @271 ]
+"1166
+[v _PWM3CR1 PWM3CR1 `VEuc  1 e 1 @272 ]
+"1170
+[v _TMR3ON TMR3ON `VEb  1 e 0 @2178 ]
+"1196
+[v _T3CKDIV T3CKDIV `VEuc  1 e 1 @273 ]
+"28 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\7-PWM\PWM\PWM.C
+[v _main main `(i  1 e 2 0 ]
+{
+"50
+} 0
+"20
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"22
+} 0

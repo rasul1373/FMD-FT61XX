@@ -1,0 +1,90 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 PICREGULAR PICMID SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F02X ]
+[d frameptr 6 ]
+"14 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\8-ADC\ADC\ADC.C
+[v _delayUs delayUs `(v  1 e 1 0 ]
+"23
+[v _get_adc get_adc `(ui  1 e 2 0 ]
+"48
+[v _ISR ISR `II(v  1 e 1 0 ]
+"56
+[v _main main `(i  1 e 2 0 ]
+"62 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"535 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\FT61F02X.h
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"539
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"542
+[v _GO_DONE GO_DONE `VEb  1 e 0 @249 ]
+"640
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"779
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"835
+[v _ANSEL ANSEL `VEuc  1 e 1 @145 ]
+"1015
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"1019
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"1097
+[v _TMR3L TMR3L `VEuc  1 e 1 @268 ]
+"1101
+[v _TMR3H TMR3H `VEuc  1 e 1 @269 ]
+"1103
+[v _PR3H0 PR3H0 `VEb  1 e 0 @2152 ]
+"1104
+[v _PR3H1 PR3H1 `VEb  1 e 0 @2153 ]
+"1105
+[v _PR3H2 PR3H2 `VEb  1 e 0 @2154 ]
+"1106
+[v _PR3H3 PR3H3 `VEb  1 e 0 @2155 ]
+"1131
+[v _PR3L PR3L `VEuc  1 e 1 @270 ]
+"1135
+[v _PWM3CR0 PWM3CR0 `VEuc  1 e 1 @271 ]
+"1166
+[v _PWM3CR1 PWM3CR1 `VEuc  1 e 1 @272 ]
+"1170
+[v _TMR3ON TMR3ON `VEb  1 e 0 @2178 ]
+"1196
+[v _T3CKDIV T3CKDIV `VEuc  1 e 1 @273 ]
+"56 C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\CODE\8-ADC\ADC\ADC.C
+[v _main main `(i  1 e 2 0 ]
+{
+"84
+} 0
+"23
+[v _get_adc get_adc `(ui  1 e 2 0 ]
+{
+[v get_adc@ch ch `uc  1 a 1 wreg ]
+"26
+[v get_adc@adc_data adc_data `ui  1 a 2 8 ]
+"25
+[v get_adc@ADCON0buff ADCON0buff `uc  1 a 1 10 ]
+"23
+[v get_adc@ch ch `uc  1 a 1 wreg ]
+[v get_adc@ch ch `uc  1 a 1 7 ]
+"42
+} 0
+"14
+[v _delayUs delayUs `(v  1 e 1 0 ]
+{
+[v delayUs@time time `uc  1 a 1 wreg ]
+"16
+[v delayUs@a a `uc  1 a 1 3 ]
+"14
+[v delayUs@time time `uc  1 a 1 wreg ]
+"17
+[v delayUs@time time `uc  1 a 1 2 ]
+"21
+} 0
+"48
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"50
+} 0

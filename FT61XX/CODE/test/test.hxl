@@ -1,0 +1,23 @@
+### HEX     logfile and output summary ###
+### Memory Usage ###
+ Unused memory ranges:
+  2h - 7h
+  2Ah - 3Fh
+  
+ test.hex ranges:
+  0h - 1h
+  8h - 29h
+  
+### Hex Memory Map ###
+ Legend:
+  - = Unused memory
+  F = Filled ROM
+  S = Stored serial code
+  A = Stored ASCII string
+  R = Reserved for checksum
+  C = Stored checksum result
+  T = Trailing code
+  & = Find & replace opcode
+  X = Find & delete opcode
+  1 = test.hex
+00000000: 11------1111111111111111111111111111111111----------------------

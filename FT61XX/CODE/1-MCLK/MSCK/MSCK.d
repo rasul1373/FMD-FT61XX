@@ -1,0 +1,1 @@
+ MSCK.d  MSCK.obj:  MSCK.C
