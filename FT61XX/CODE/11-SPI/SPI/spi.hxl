@@ -1,0 +1,25 @@
+### HEX     logfile and output summary ###
+### Memory Usage ###
+ Unused memory ranges:
+  2h - F51h
+  
+ spi.hex ranges:
+  0h - 1h
+  F52h - FFFh
+  
+### Hex Memory Map ###
+ Legend:
+  - = Unused memory
+  F = Filled ROM
+  S = Stored serial code
+  A = Stored ASCII string
+  R = Reserved for checksum
+  C = Stored checksum result
+  T = Trailing code
+  & = Find & replace opcode
+  X = Find & delete opcode
+  1 = spi.hex
+00000000: 11--------------------------------------------------------------
+00000F40: ------------------1111111111111111111111111111111111111111111111
+00000F80: 1111111111111111111111111111111111111111111111111111111111111111
+00000FC0: 1111111111111111111111111111111111111111111111111111111111111111
