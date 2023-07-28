@@ -1,0 +1,771 @@
+GNU Tool Chain  
+
+Linker command line:
+
+\
+  --edf=C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\dat\en_msgs.txt \
+  -cs -h+i2c.sym --cmf=i2c.cmf -z -QFT61F02X \
+  -oC:\Users\rasul\AppData\Local\Temp\soo.2 -Mi2c.map -E1 -ver=XC8 \
+  -ASTACK=020h-06fh -pstack=STACK -ACODE=00h-07FFh -ASTRCODE=00h-07FFh \
+  -ASTRING=00h-0FFhx8 -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 \
+  -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0BFh \
+  -ARAM=020h-06Fh,0A0h-0BFh -AABS1=020h-07Fh,0A0h-0BFh -ASFR0=00h-01Fh \
+  -ASFR1=080h-09Fh -ASFR2=0100h-016Fh \
+  -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
+  -pfunctab=ENTRY -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
+  -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
+  -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
+  -DENTRY=2 -k C:\Users\rasul\AppData\Local\Temp\soo.obj i2c.obj 
+
+Object code version is 3.11
+
+Machine type is FT61F02X
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\rasul\AppData\Local\Temp\soo.obj
+                end_init                              0        0        1        0       0
+i2c.obj         cinit                               7FD      7FD        3      FFA       0
+                text12                              703      703        9      E06       0
+                text11                              73D      73D        F      E7A       0
+                text10                              7B5      7B5       1C      F6A       0
+                text9                               7D1      7D1       2C      FA2       0
+                text8                               75D      75D       12      EBA       0
+                text7                               721      721        E      E42       0
+                text6                               784      784       17      F08       0
+                text5                               79B      79B       1A      F36       0
+                text4                               76F      76F       15      EDE       0
+                text3                               70C      70C        A      E18       0
+                text2                               72F      72F        E      E5E       0
+                text1                               716      716        B      E2C       0
+                maintext                            74C      74C       11      E98       0
+                cstackCOMMON                         70       70        7       70       1
+                bssCOMMON                            77       77        1       70       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                              0        0        1         0
+                cinit                               7FD      7FD        3         0
+                text12                              703      703        9         0
+                text11                              73D      73D        F         0
+                text10                              7B5      7B5       1C         0
+                text9                               7D1      7D1       2C         0
+                text8                               75D      75D       12         0
+                text7                               721      721        E         0
+                text6                               784      784       17         0
+                text5                               79B      79B       1A         0
+                text4                               76F      76F       15         0
+                text3                               70C      70C        A         0
+                text2                               72F      72F        E         0
+                text1                               716      716        B         0
+                maintext                            74C      74C       11         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   COMMON         
+                cstackCOMMON                         70       70        7         1
+                bssCOMMON                            77       77        1         1
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+        CLASS   BANK2          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                cstackCOMMON                   000070  000008  000078        70       1  COMMON      1
+                text12                         000703  000009  00070C       E06       0  CODE        2
+                text3                          00070C  00000A  000716       E18       0  CODE        2
+                text1                          000716  00000B  000721       E2C       0  CODE        2
+                text7                          000721  00000E  00072F       E42       0  CODE        2
+                text2                          00072F  00000E  00073D       E5E       0  CODE        2
+                text11                         00073D  00000F  00074C       E7A       0  CODE        2
+                maintext                       00074C  000011  00075D       E98       0  CODE        2
+                text8                          00075D  000012  00076F       EBA       0  CODE        2
+                text4                          00076F  000015  000784       EDE       0  CODE        2
+                text6                          000784  000017  00079B       F08       0  CODE        2
+                text5                          00079B  00001A  0007B5       F36       0  CODE        2
+                text10                         0007B5  00001C  0007D1       F6A       0  CODE        2
+                text9                          0007D1  00002C  0007FD       FA2       0  CODE        2
+                cinit                          0007FD  000003  000800       FFA       0  CODE        2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0020-006F             50           1
+        BANK1            00A0-00BF             20           1
+        CODE             0001-0702            702           2
+        COMMON           0078-007D              6           1
+        CONFIG           2007-2007              1           2
+        CONST            0001-0702            100           2
+        EEDATA           2100-21FF            100           2
+        ENTRY            0001-0702            100           2
+        IDLOC            2000-2003              4           2
+        RAM              0020-006F             50           1
+                         00A0-00BF             20
+        SFR0             0000-001F             20           1
+        SFR1             0080-009F             20           1
+        SFR2             0100-016F             70           1
+        STACK            0020-006F             50           1
+        STRCODE          0001-0702            702           2
+        STRING           0001-0702            100           2
+
+                                  Symbol Table
+
+DelayUs@Time             cstackCOMMON 0070
+DelayUs@a                cstackCOMMON 0071
+IIC_READ@address         cstackCOMMON 0075
+IIC_READ@iicdata         cstackCOMMON 0076
+IIC_Read_Byte@i          cstackCOMMON 0073
+IIC_Read_Byte@receive    cstackCOMMON 0072
+IIC_Send_Byte@t          cstackCOMMON 0074
+IIC_Send_Byte@txd        cstackCOMMON 0073
+IIC_WRITE@address        cstackCOMMON 0076
+IIC_WRITE@data           cstackCOMMON 0075
+IIC_Wait_Ack@ucErrTime   cstackCOMMON 0072
+PL2                      text9        07F3
+PL4                      text9        07F9
+PL6                      text10       07CD
+_ANSEL                   (abs)        0091
+_DelayUs                 text12       0703
+_IIC_NAck                text11       073D
+_IIC_READ                text5        079B
+_IIC_Read_Byte           text10       07B5
+_IIC_Send_Byte           text9        07D1
+_IIC_Start               text8        075D
+_IIC_Stop                text7        0721
+_IIC_WRITE               text4        076F
+_IIC_Wait_Ack            text6        0784
+_INTCON                  (abs)        000B
+_OSCCON                  (abs)        008F
+_PA2                     (abs)        002A
+_PA4                     (abs)        002C
+_PORTA                   (abs)        0005
+_POWER_INITIAL           text3        070C
+_TRISA                   (abs)        0085
+_TRISA2                  (abs)        042A
+__Habs1                  abs1         0000
+__Hbank0                 bank0        0000
+__Hbank1                 bank1        0000
+__Hbank2                 bank2        0000
+__HbssCOMMON             bssCOMMON    0000
+__Hcinit                 cinit        0800
+__Hclrtext               clrtext      0000
+__Hcode                  code         0000
+__Hcommon                common       0000
+__Hconfig                config       0000
+__HcstackCOMMON          cstackCOMMON 0000
+__Heeprom_data           eeprom_data  0000
+__Hend_init              end_init     0001
+__Hfunctab               functab      0000
+__Hidloc                 idloc        0000
+__Hinit                  init         0000
+__Hintentry              intentry     0000
+__Hmaintext              maintext     0000
+__Hpa_nodes0             pa_nodes0    0000
+__Hpowerup               powerup      0000
+__Hram                   ram          0000
+__Hreset_vec             reset_vec    0000
+__Hsfr0                  sfr0         0000
+__Hsfr1                  sfr1         0000
+__Hsfr2                  sfr2         0000
+__Hspace_0               (abs)        0800
+__Hspace_1               (abs)        0078
+__Hspace_2               (abs)        0000
+__Hspace_3               (abs)        0000
+__Hstack                 stack        0000
+__Hstrings               strings      0000
+__Htext                  text         0000
+__Labs1                  abs1         0000
+__Lbank0                 bank0        0000
+__Lbank1                 bank1        0000
+__Lbank2                 bank2        0000
+__LbssCOMMON             bssCOMMON    0000
+__Lcinit                 cinit        07FD
+__Lclrtext               clrtext      0000
+__Lcode                  code         0000
+__Lcommon                common       0000
+__Lconfig                config       0000
+__LcstackCOMMON          cstackCOMMON 0000
+__Leeprom_data           eeprom_data  0000
+__Lend_init              end_init     0000
+__Lfunctab               functab      0000
+__Lidloc                 idloc        0000
+__Linit                  init         0000
+__Lintentry              intentry     0000
+__Lmaintext              maintext     0000
+__Lpa_nodes0             pa_nodes0    0000
+__Lpowerup               powerup      0000
+__Lram                   ram          0000
+__Lreset_vec             reset_vec    0000
+__Lsfr0                  sfr0         0000
+__Lsfr1                  sfr1         0000
+__Lsfr2                  sfr2         0000
+__Lspace_0               (abs)        0000
+__Lspace_1               (abs)        0000
+__Lspace_2               (abs)        0000
+__Lspace_3               (abs)        0000
+__Lstack                 stack        0000
+__Lstrings               strings      0000
+__Ltext                  text         0000
+__S0                     (abs)        0800
+__S1                     (abs)        0078
+__S2                     (abs)        0000
+__S3                     (abs)        0000
+___bmul                  text2        072F
+___bmul@multiplicand     cstackCOMMON 0070
+___bmul@multiplier       cstackCOMMON 0072
+___bmul@product          cstackCOMMON 0071
+___int_sp                stack        0000
+___latbits               (abs)        0000
+___sp                    stack        0000
+__end_ofPL2              text9        07F9
+__end_ofPL4              text9        07FD
+__end_ofPL6              text10       07D1
+__end_of_DelayUs         text12       070C
+__end_of_IIC_NAck        text11       074C
+__end_of_IIC_READ        text5        07B5
+__end_of_IIC_Read_Byte   text10       07CD
+__end_of_IIC_Send_Byte   text9        07F3
+__end_of_IIC_Start       text8        076F
+__end_of_IIC_Stop        text7        072F
+__end_of_IIC_WRITE       text4        0784
+__end_of_IIC_Wait_Ack    text6        079B
+__end_of_POWER_INITIAL   text3        0716
+__end_of___bmul          text2        073D
+__end_of__initialization cinit        07FE
+__end_of_bcd2bin         text1        0721
+__end_of_main            maintext     075D
+__initialization         cinit        07FD
+__pbssCOMMON             bssCOMMON    0077
+__pcstackCOMMON          cstackCOMMON 0070
+__pmaintext              maintext     074C
+__ptext0                 text0        0000
+__ptext1                 text1        0716
+__ptext10                text10       07B5
+__ptext11                text11       073D
+__ptext12                text12       0703
+__ptext2                 text2        072F
+__ptext3                 text3        070C
+__ptext4                 text4        076F
+__ptext5                 text5        079B
+__ptext6                 text6        0784
+__ptext7                 text7        0721
+__ptext8                 text8        075D
+__ptext9                 text9        07D1
+__size_of_DelayUs        (abs)        0000
+__size_of_IIC_NAck       (abs)        0000
+__size_of_IIC_READ       (abs)        0000
+__size_of_IIC_Read_Byte  (abs)        0000
+__size_of_IIC_Send_Byte  (abs)        0000
+__size_of_IIC_Start      (abs)        0000
+__size_of_IIC_Stop       (abs)        0000
+__size_of_IIC_WRITE      (abs)        0000
+__size_of_IIC_Wait_Ack   (abs)        0000
+__size_of_POWER_INITIAL  (abs)        0000
+__size_of___bmul         (abs)        0000
+__size_of_bcd2bin        (abs)        0000
+__size_of_main           (abs)        0000
+_bcd2bin                 text1        0716
+_main                    maintext     074C
+_sec                     bssCOMMON    0077
+bcd2bin@bin              cstackCOMMON 0074
+bcd2bin@x                cstackCOMMON 0075
+btemp                    (abs)        007E
+end_of_initialization    cinit        07FE
+intlevel0                functab      0000
+intlevel1                functab      0000
+intlevel2                functab      0000
+intlevel3                functab      0000
+intlevel4                functab      0000
+intlevel5                functab      0000
+reset_vec                reset_vec    0000
+stackhi                  (abs)        0000
+stacklo                  (abs)        0000
+start                    init         0000
+start_initialization     cinit        07FD
+wtemp0                   (abs)        007E
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 185 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         0       0       0
+      Temps:          0       0       0
+      Totals:         0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels required when called:    4
+ This function calls:
+		_IIC_READ
+		_IIC_WRITE
+		_POWER_INITIAL
+		_bcd2bin
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _bcd2bin *****************
+ Defined at:
+		line 171 in file "I2C.C"
+ Parameters:    Size  Location     Type
+  x               1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  x               1    5[COMMON] unsigned char 
+  bin             1    4[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         2       0       0
+      Temps:          1       0       0
+      Totals:         3       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		___bmul
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function ___bmul *****************
+ Defined at:
+		line 4 in file "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\Umul8.c"
+ Parameters:    Size  Location     Type
+  multiplier      1    wreg     unsigned char 
+  multiplicand    1    0[COMMON] unsigned char 
+ Auto vars:     Size  Location     Type
+  multiplier      1    2[COMMON] unsigned char 
+  product         1    1[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         1       0       0
+      Locals:         2       0       0
+      Temps:          0       0       0
+      Totals:         3       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_bcd2bin
+ This function uses a non-reentrant model
+
+
+ *************** function _POWER_INITIAL *****************
+ Defined at:
+		line 14 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         0       0       0
+      Temps:          0       0       0
+      Totals:         0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_WRITE *****************
+ Defined at:
+		line 155 in file "I2C.C"
+ Parameters:    Size  Location     Type
+  address         1    wreg     unsigned char 
+  data            1    5[COMMON] unsigned char 
+ Auto vars:     Size  Location     Type
+  address         1    6[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         1       0       0
+      Locals:         1       0       0
+      Temps:          0       0       0
+      Totals:         2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_IIC_Send_Byte
+		_IIC_Start
+		_IIC_Stop
+		_IIC_Wait_Ack
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_READ *****************
+ Defined at:
+		line 138 in file "I2C.C"
+ Parameters:    Size  Location     Type
+  address         1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  address         1    5[COMMON] unsigned char 
+  iicdata         1    6[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         2       0       0
+      Temps:          0       0       0
+      Totals:         2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_IIC_Read_Byte
+		_IIC_Send_Byte
+		_IIC_Start
+		_IIC_Stop
+		_IIC_Wait_Ack
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_Wait_Ack *****************
+ Defined at:
+		line 57 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  ucErrTime       1    2[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         1       0       0
+      Temps:          0       0       0
+      Totals:         1       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_DelayUs
+		_IIC_Stop
+ This function is called by:
+		_IIC_READ
+		_IIC_WRITE
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_Stop *****************
+ Defined at:
+		line 45 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         0       0       0
+      Temps:          0       0       0
+      Totals:         0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_DelayUs
+ This function is called by:
+		_IIC_Wait_Ack
+		_IIC_READ
+		_IIC_WRITE
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_Start *****************
+ Defined at:
+		line 33 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         0       0       0
+      Temps:          0       0       0
+      Totals:         0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_DelayUs
+ This function is called by:
+		_IIC_READ
+		_IIC_WRITE
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_Send_Byte *****************
+ Defined at:
+		line 100 in file "I2C.C"
+ Parameters:    Size  Location     Type
+  txd             1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  txd             1    3[COMMON] unsigned char 
+  t               1    4[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         2       0       0
+      Temps:          1       0       0
+      Totals:         3       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_DelayUs
+ This function is called by:
+		_IIC_READ
+		_IIC_WRITE
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_Read_Byte *****************
+ Defined at:
+		line 120 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               1    3[COMMON] unsigned char 
+  receive         1    2[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         2       0       0
+      Temps:          0       0       0
+      Totals:         2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_DelayUs
+		_IIC_NAck
+ This function is called by:
+		_IIC_READ
+ This function uses a non-reentrant model
+
+
+ *************** function _IIC_NAck *****************
+ Defined at:
+		line 89 in file "I2C.C"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         0       0       0
+      Temps:          0       0       0
+      Totals:         0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_DelayUs
+ This function is called by:
+		_IIC_Read_Byte
+ This function uses a non-reentrant model
+
+
+ *************** function _DelayUs *****************
+ Defined at:
+		line 24 in file "I2C.C"
+ Parameters:    Size  Location     Type
+  Time            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  Time            1    0[COMMON] unsigned char 
+  a               1    1[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1
+      Params:         0       0       0
+      Locals:         2       0       0
+      Temps:          0       0       0
+      Totals:         2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_IIC_Start
+		_IIC_Stop
+		_IIC_Wait_Ack
+		_IIC_NAck
+		_IIC_Send_Byte
+		_IIC_Read_Byte
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+I2C.C
+		_IIC_Stop      		CODE           	0721	0000	15
+		_IIC_READ      		CODE           	079B	0000	27
+		_IIC_Wait_Ack  		CODE           	0784	0000	24
+		_DelayUs       		CODE           	0703	0000	10
+		_IIC_Read_Byte 		CODE           	07B5	0000	25
+		_main          		CODE           	074C	0000	18
+		_IIC_Send_Byte 		CODE           	07D1	0000	35
+		_IIC_NAck      		CODE           	073D	0000	16
+		_IIC_Start     		CODE           	075D	0000	19
+		_POWER_INITIAL 		CODE           	070C	0000	11
+		_bcd2bin       		CODE           	0716	0000	12
+		_IIC_WRITE     		CODE           	076F	0000	22
+
+I2C.C estimated size: 234
+
+shared
+		__initialization		CODE           	07FD	0000	2
+		PL2            		CODE           	07F3	0000	7
+		PL4            		CODE           	07F9	0000	5
+		PL6            		CODE           	07CD	0000	5
+
+shared estimated size: 19
+
+C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\Umul8.c
+		___bmul        		CODE           	072F	0000	15
+
+C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\sources\common\Umul8.c estimated size: 15
+
