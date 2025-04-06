@@ -1,17 +1,17 @@
 
 # 1 "EEPROM.C"
 
-# 26 "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\fmd.h"
+# 26 "C:\Users\FAZLI\Desktop\FMDIDE3.0.7\data\include\fmd.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\GCC8debug.h"
+# 13 "C:\Users\FAZLI\Desktop\FMDIDE3.0.7\data\include\GCC8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 11 "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\FT61F02X.h"
+# 10 "C:\Users\FAZLI\Desktop\FMDIDE3.0.7\data\include\FT61F02X.h"
 volatile unsigned char INDF @ 0x000;
 
 
@@ -571,7 +571,7 @@ unsigned VCFG1 : 1;
 };
 } ADCON0bits @ 0x01F;
 
-# 575
+# 574
 volatile unsigned char OPTION @ 0x081;
 
 volatile bit PS0 @ ((unsigned)&OPTION*8)+0;
@@ -1037,7 +1037,7 @@ unsigned ADCS2 : 1;
 };
 } ADCON1bits @ 0x09F;
 
-# 1046
+# 1045
 volatile unsigned char VCON1 @ 0x0108;
 
 volatile bit VREGHB0 @ ((unsigned)&VCON1*8)+0;
@@ -1486,21 +1486,21 @@ volatile unsigned char SFR10E @0x10E;
 volatile unsigned char SFR10F @0x10F;
 
 
-# 30 "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\SYSCFG.h"
+# 30 "C:\Users\FAZLI\Desktop\FMDIDE3.0.7\data\include\SYSCFG.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 79
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\eeprom_routines.h"
+# 41 "C:\Users\FAZLI\Desktop\FMDIDE3.0.7\data\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 152 "C:\Users\rasul\Desktop\ZAGROS EDU\FMD\FT61XX\TOOLS\FMDIDE3.0.7\data\include\SYSCFG.h"
+# 152 "C:\Users\FAZLI\Desktop\FMDIDE3.0.7\data\include\SYSCFG.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1509,162 +1509,53 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 1 "EEPROM.C"
-;
+# 14 "EEPROM.C"
+volatile unsigned char test=0;
+unsigned char EEPROMread(unsigned char EEAddr)
+{
+unsigned char read;
 
-# 2
-;
+EEADR = EEAddr;
+RD = 1;
+read = EEDAT;
+return read;
 
-# 11
-unsigned char RXFLAG = 0;
-unsigned char ReadAPin;
+}
 
-void POWER_INITIAL(void)
+
+void EEPROMwrite(unsigned char EEAddr , unsigned char data)
+{
+GIE = 0;
+while(GIE);
+EEADR = EEAddr;
+EEDAT = data;
+EEIF = 0;
+WREN1 = 1;
+WREN2 = 1;
+WREN3 = 1;
+WR = 1;
+while (WR);
+GIE = 1;
+
+
+
+}
+
+# 56
+void interrupt ISR(void)
+{
+}
+
+# 64
+main()
 {
 OSCCON = 0B01110001;
 
-PORTA = 0B00000000;
-TRISA = 0B00000000;
-
-TRISC = 1<<1;
-WPUC = 1<<1;
-PORTC = 0;
-
-ANSEL5 = 0;
-CMCON0 = 0B00000111;
-INTEDG = 0;
-INTE=1;
-GIE=1;
-INTF=0;
-
-}
-
-void TIMER0_INITIAL (void)
-{
-OPTION = 0B00000000;
-TMR0 = 49;
-T0IF = 0;
-}
-
-
-void interrupt ISR(void)
-{
-
-if(T0IE && T0IF)
-{
-TMR0 = 49;
-T0IF = 0;
-T0IE = 0;
-}
-
-
-if(INTE && INTF)
-{
-INTF = 0;
-if(PC1 == 0)
-{
-INTE = 0;
-RXFLAG = 1;
-}
-}
-}
-
-void WaitTF0( void )
-{
-while(T0IE);
-T0IE=1;
-}
-
-void delayUs(unsigned char time)
-{
-unsigned char a;
-for(a=0;a<time;a++)
+EEPROMwrite(0x12,0x55);
+test = EEPROMread(0x12);
+while(1)
 {
 __nop();
 }
 }
 
-void delayMs(unsigned char time)
-{
-unsigned char a,b;
-
-for(b=0;b<5;b++)
-{
-for(a=0;a<time;a++)
-{
-delayUs(197);
-}
-}
-
-}
-
-void WByte(unsigned char input)
-{
-
-unsigned char i=8;
-PA4 = 1;
-TMR0 = 49;
-T0IE = 1;
-WaitTF0();
-PA4=0;
-WaitTF0();
-
-while(i--)
-{
-if(input&0x01)
-{
-PA4=1;
-}
-else
-{
-PA4 = 0;
-}
-WaitTF0();
-input=input>>1;
-}
-
-
-PA4=(bit)1;
-T0IE=0;
-}
-
-unsigned char RByte()
-{
-unsigned char Output=0;
-unsigned char i=8;
-T0IE=1;
-TMR0 = 49;
-WaitTF0();
-T0IE=1;
-TMR0 = 49;
-WaitTF0();
-
-while(i--)
-{
-Output >>=1;
-if(PC1)
-{
-Output |=0x80;
-}
-WaitTF0();
-}
-T0IE=0;
-return Output;
-}
-
-void main(void)
-{
-unsigned char rdata = 0;
-POWER_INITIAL();
-TIMER0_INITIAL();
-GIE = 1;
-T0IE = 1;
-while(1)
-{
-
-# 165
-delayMs(50);
-WByte(0x55);
-
-}
-}
